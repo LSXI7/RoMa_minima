@@ -265,7 +265,7 @@ def train(args):
             n, k, mega_dataloader, ddp_model, depth_loss, optimizer, lr_scheduler, grad_scaler,
             grad_clip_norm=grad_clip_norm,
         )
-        checkpointer.save(model, optimizer, lr_scheduler, romatch.GLOBAL_STEP)
+        checkpointer.save(model, optimizer, lr_scheduler, romatch.GLOBAL_STEP, n)
         wandb.log(megadense_benchmark.benchmark(model), step=romatch.GLOBAL_STEP)
 
 
